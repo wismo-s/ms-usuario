@@ -1,0 +1,24 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: ms-usuario
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_jei
+    username: root
+    password: mysql
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
+app:
+  category:
+    base-url: http://localhost:8081
