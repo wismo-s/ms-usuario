@@ -13,6 +13,7 @@ public class UsuarioResponseDto {
     private String nombre;
     private String apellido;
     private String correo;
+    private String contrasena;
     private Role role;
     private Departamento departamento;
 }

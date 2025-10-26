@@ -27,6 +27,14 @@ public class UsuarioServiceImpl  implements UsuarioService {
     }
 
     @Override
+    public UsuarioResponseDto buscarPorCorreo(String correo) {
+        Usuario usuario = usuarioRepository.findByCorreo(correo)
+                .orElseThrow(() -> new RuntimeException("No se encontro usuario con correo: " + correo));
+
+        return usuarioMapper.toDto(usuario);
+    }
+
+    @Override
     public UsuarioResponseDto buscarPorId(Long id) {
         Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado con id: " + id));

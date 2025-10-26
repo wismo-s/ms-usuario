@@ -26,6 +26,11 @@ public class UsuarioController {
         UsuarioResponseDto usuario = usuarioService.buscarPorId(id);
         return ResponseEntity.ok(usuario);
     }
+    @GetMapping("/correo/{correo}")
+    public ResponseEntity<UsuarioResponseDto> buscarPorCorreo(@PathVariable String correo) {
+        UsuarioResponseDto usuario = usuarioService.buscarPorCorreo(correo);
+        return ResponseEntity.ok(usuario);
+    }
 
     @GetMapping
     public ResponseEntity<List<UsuarioResponseDto>> listarUsuarios(

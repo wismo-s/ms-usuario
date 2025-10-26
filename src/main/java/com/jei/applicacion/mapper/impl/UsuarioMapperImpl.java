@@ -15,6 +15,7 @@ public class UsuarioMapperImpl implements UsuarioMapper {
                 .nombre(usuarioRequestDto.getNombre())
                 .apellido(usuarioRequestDto.getApellido())
                 .correo(usuarioRequestDto.getCorreo())
+                .contrasena(usuarioRequestDto.getContrasena())
                 .role(Role.TRABAJADOR)
                 .departamento(usuarioRequestDto.getDepartamento())
                 .contrasena(usuarioRequestDto.getContrasena())
@@ -28,6 +29,7 @@ public class UsuarioMapperImpl implements UsuarioMapper {
                 .nombre(usuario.getNombre())
                 .apellido(usuario.getApellido())
                 .correo(usuario.getCorreo())
+                .contrasena(usuario.getContrasena())
                 .role(usuario.getRole())
                 .departamento(usuario.getDepartamento())
                 .build();

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UsuarioService {
     UsuarioResponseDto crear(UsuarioRequestDto usuarioRequestDto);
-
+    UsuarioResponseDto buscarPorCorreo(String correo);
     UsuarioResponseDto buscarPorId(Long id);
     List<UsuarioResponseDto> buscarPorDepartamento(Departamento departamento);
 }
