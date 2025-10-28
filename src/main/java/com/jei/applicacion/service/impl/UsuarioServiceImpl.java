@@ -8,9 +8,13 @@ import com.jei.dominio.repository.UsuarioRepository;
 import com.jei.web.dto.UsuarioRequestDto;
 import com.jei.web.dto.UsuarioResponseDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -43,7 +47,23 @@ public class UsuarioServiceImpl  implements UsuarioService {
 
     @Override
     public List<UsuarioResponseDto> buscarPorDepartamento(Departamento departamento) {
-        List<Usuario> usuarios = usuarioRepository.findByDepartamento(departamento);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        String userRole = "ADMIN";
+        String userDepartamento = "COMERCIAL";
+
+        if (auth != null && auth.getPrincipal() != null) {
+            Object principal = auth.getPrincipal();
+            if (principal instanceof Jwt jwt) {
+                userRole = jwt.getClaimAsString("role");
+                userDepartamento = jwt.getClaimAsString("departamento");
+            }
+        }
+
+        Departamento departamentoFinal = "ADMIN".equalsIgnoreCase(userRole)
+                ? departamento
+                : Departamento.valueOf(userDepartamento);
+        List<Usuario> usuarios = usuarioRepository.findByDepartamento(departamentoFinal);
         return usuarios.stream()
                 .map(usuarioMapper::toDto)
                 .toList();

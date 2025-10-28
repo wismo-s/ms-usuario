@@ -1,0 +1,83 @@
+CREATE DATABASE IF NOT EXISTS db_jei;
+drop database db_jei;
+USE db_jei;
+
+INSERT INTO issue (nombre, usuario, prioridad, estado, tipo, epicos, sprint, proyecto, fecha, departamento)
+VALUES
+('Implementar autenticación JWT', 1, 'ALTA', 'EN_CURSO', 'TASK', 1, 'Sprint 1', 1, '2025-10-22', 'DIGITAL'),
+('Diseñar landing page de ventas', 2, 'MEDIA', 'REVISION', 'STORY', 2, 'Sprint 2', 2, '2025-10-20', 'MARKETING'),
+('Optimizar consultas SQL', 3, 'BAJA', 'SIN_EMPEZAR', 'TASK', 3, 'Sprint 3', 3, '2025-10-18', 'ADMINISTRACION'),
+('Configurar CI/CD con GitHub Actions', 4, 'ALTA', 'COMPLETADO', 'TASK', 4, 'Sprint 1', 4, '2025-09-30', 'DIGITAL'),
+('Refactorizar servicio de pagos', 5, 'MEDIA', 'APROBADO', 'STORY', 5, 'Sprint 4', 5, '2025-10-15', 'COMERCIAL'),
+('Crear módulo de reservas', 7, 'ALTA', 'EN_CURSO', 'TASK', 6, 'Sprint 2', 6, '2025-10-21', 'ADMINISTRACION'),
+('Implementar chat en plataforma e-learning', 8, 'MEDIA', 'REVISION', 'STORY', 7, 'Sprint 3', 7, '2025-10-19', 'RRHH'),
+('Optimizar rutas de delivery', 9, 'BAJA', 'SIN_EMPEZAR', 'TASK', 8, 'Sprint 4', 8, '2025-10-17', 'DIGITAL'),
+('Actualizar sistema financiero', 10, 'ALTA', 'COMPLETADO', 'TASK', 9, 'Sprint 1', 9, '2025-09-29', 'ADMINISTRACION'),
+('Crear dashboard de marketing', 11, 'MEDIA', 'APROBADO', 'STORY', 10, 'Sprint 5', 10, '2025-10-16', 'MARKETING'),
+('Control de inventario', 12, 'ALTA', 'EN_CURSO', 'TASK', 11, 'Sprint 2', 11, '2025-10-20', 'COMERCIAL'),
+
+('Actualizar autenticación JWT', 1, 'MEDIA', 'REVISION', 'TASK', 1, 'Sprint 2', 1, '2025-10-23', 'DIGITAL'),
+('Landing page optimizada para ventas', 2, 'ALTA', 'EN_CURSO', 'STORY', 2, 'Sprint 3', 2, '2025-10-21', 'MARKETING'),
+('Mejorar consultas SQL', 3, 'ALTA', 'EN_CURSO', 'TASK', 3, 'Sprint 4', 3, '2025-10-19', 'ADMINISTRACION'),
+('Configurar pipeline CI/CD', 4, 'MEDIA', 'REVISION', 'TASK', 4, 'Sprint 2', 4, '2025-10-01', 'DIGITAL'),
+('Refactorización avanzada del servicio de pagos', 5, 'ALTA', 'EN_CURSO', 'STORY', 5, 'Sprint 5', 5, '2025-10-16', 'COMERCIAL'),
+('Módulo de reservas extendido', 7, 'MEDIA', 'REVISION', 'TASK', 6, 'Sprint 3', 6, '2025-10-22', 'ADMINISTRACION'),
+('Chat e-learning mejorado', 8, 'ALTA', 'EN_CURSO', 'STORY', 7, 'Sprint 4', 7, '2025-10-20', 'RRHH'),
+('Rutas de delivery optimizadas', 9, 'MEDIA', 'REVISION', 'TASK', 8, 'Sprint 5', 8, '2025-10-18', 'DIGITAL'),
+('Sistema financiero actualizado', 10, 'MEDIA', 'REVISION', 'TASK', 9, 'Sprint 2', 9, '2025-10-02', 'ADMINISTRACION'),
+('Dashboard de marketing avanzado', 11, 'ALTA', 'EN_CURSO', 'STORY', 10, 'Sprint 6', 10, '2025-10-17', 'MARKETING'),
+('Inventario controlado y auditado', 12, 'MEDIA', 'REVISION', 'TASK', 11, 'Sprint 3', 11, '2025-10-21', 'COMERCIAL');
+;
+
+
+
+
+INSERT INTO epicas (nombre, estado, proyecto, departamento, usuario, fecha)
+VALUES
+('Campaña de lanzamiento', 'EN_PROGRESO', 1, 'MARKETING', 1, '2025-10-10'),
+('Sistema de nóminas', 'ABIERTA', 2, 'RRHH', 2, '2025-10-05'),
+('Rebranding corporativo', 'EN_PROGRESO', 3, 'AUDIOVISUAL', 3, '2025-10-08'),
+('Plataforma de e-commerce', 'COMPLETADA', 4, 'DIGITAL', 4, '2025-09-30'),
+('Automatización de reportes', 'ABIERTA', 5, 'ADMINISTRACION', 5, '2025-10-20'),
+
+('Campaña de email marketing', 'EN_PROGRESO', 6, 'MARKETING', 7, '2025-10-11'),
+('Sistema de feedback', 'ABIERTA', 7, 'RRHH', 8, '2025-10-06'),
+('Rediseño de UI', 'EN_PROGRESO', 8, 'DIGITAL', 9, '2025-10-13'),
+('Optimización de procesos', 'EN_PROGRESO', 9, 'ADMINISTRACION', 10, '2025-10-19'),
+('Campaña de redes sociales', 'COMPLETADA', 10, 'MARKETING', 11, '2025-09-12'),
+('Gestión de proveedores', 'ABIERTA', 11, 'COMERCIAL', 12, '2025-10-09');
+
+
+
+INSERT INTO proyecto (nombre, cuenta, estado, usuario, fecha_creacion, epicas, departamento)
+VALUES 
+('Sistema de Gestión Escolar', 'Cuenta_01', 'EN_CURSO', 1, '2025-10-01', 'Módulo de estudiantes', 'ADMINISTRACION'),
+('Plataforma de Ventas Online', 'Cuenta_02', 'APROBADO', 2, '2025-09-15', 'Carrito y checkout', 'COMERCIAL'),
+('App de Fitness', 'Cuenta_03', 'EN_REVISION', 3, '2025-10-10', 'Rutinas y progreso', 'DIGITAL'),
+('Portal de Recursos Humanos', 'Cuenta_04', 'PROPUESTO', 4, '2025-10-20', 'Gestión de empleados', 'RRHH'),
+('Dashboard de Análisis', 'Cuenta_05', 'COMPLETADO', 5, '2025-09-05', 'Integración de Power BI', 'MARKETING'),
+
+('Sistema de Reservas Hotel', 'Cuenta_06', 'EN_CURSO', 7, '2025-10-05', 'Módulo de habitaciones', 'ADMINISTRACION'),
+('Plataforma de E-learning', 'Cuenta_07', 'APROBADO', 8, '2025-09-20', 'Cursos online', 'RRHH'),
+('App de Delivery', 'Cuenta_08', 'EN_REVISION', 9, '2025-10-12', 'Pedidos y seguimiento', 'DIGITAL'),
+('Portal de Finanzas', 'Cuenta_09', 'PROPUESTO', 10, '2025-10-18', 'Gestión de cuentas', 'ADMINISTRACION'),
+('Dashboard de Marketing', 'Cuenta_10', 'COMPLETADO', 11, '2025-09-10', 'Campañas y KPIs', 'MARKETING'),
+('Sistema de Inventario', 'Cuenta_11', 'EN_CURSO', 12, '2025-10-08', 'Control de stock', 'COMERCIAL');
+
+
+INSERT INTO usuarios (nombre, apellido, correo, role, departamento, contrasena)
+VALUES
+('admin', 'admin', 'lucia.martinez@empresa.com', 'ADMIN', 'MARKETING', '123456'),
+('José', 'Ramírez', 'jose.ramirez@empresa.com', 'TRABAJADOR', 'RRHH', '123456'),
+('Carlos', 'Pérez', 'carlos.perez@empresa.com', 'TRABAJADOR', 'DIGITAL', '123456'),
+('Ana', 'Torres', 'ana.torres@empresa.com', 'TRABAJADOR', 'ADMINISTRACION', '123456'),
+('María', 'Gómez', 'maria.gomez@empresa.com', 'TRABAJADOR', 'AUDIOVISUAL', '123456'),
+('Pedro', 'Sánchez', 'pedro.sanchez@empresa.com', 'ADMIN', 'COMERCIAL', '123456'),
+
+('Lucía', 'Hernández', 'lucia.hernandez@empresa.com', 'TRABAJADOR', 'MARKETING', '123456'),
+('Miguel', 'López', 'miguel.lopez@empresa.com', 'TRABAJADOR', 'RRHH', '123456'),
+('Sofía', 'García', 'sofia.garcia@empresa.com', 'TRABAJADOR', 'DIGITAL', '123456'),
+('Fernando', 'Martínez', 'fernando.martinez@empresa.com', 'TRABAJADOR', 'ADMINISTRACION', '123456'),
+('Valeria', 'Díaz', 'valeria.diaz@empresa.com', 'TRABAJADOR', 'AUDIOVISUAL', '123456'),
+('Andrés', 'Torres', 'andres.torres@empresa.com', 'ADMIN', 'COMERCIAL', '123456');
+
